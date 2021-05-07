@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get("/admin" ,[DashboardController::class , 'index']);
 
 Route::prefix("admin")->group(function(){
-   Route::get("/user" , function(){
-      return view('admin.user');
-   });
+   Route::resource("/user" , UserController::class);
 });
