@@ -25,22 +25,22 @@
     <div class="sidebar-heading">
         Interface
     </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
+    <!-- User tab-->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Users</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <a class="collapse-item" href="{{route('user.index')}}"><i class="fas fa-fw fa-user"></i> All</a>
+                <a class="collapse-item" href="{{route('user.create')}}"><i class="fas fa-fw fa-user-plus"></i> Add user</a>
             </div>
         </div>
     </li>
+    <!-- /User tab-->
+
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
@@ -49,8 +49,7 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Utilities</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Utilities:</h6>
                 <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -71,8 +70,8 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>Pages</span>
         </a>
@@ -115,7 +114,8 @@
     <!-- Sidebar Message -->
     <div class="sidebar-card">
         <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
-        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!
+        </p>
         <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
     </div>
 

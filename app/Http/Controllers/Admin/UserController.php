@@ -17,8 +17,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-        
+        //$users= SELECT * FROM users
+        //$users = User::all();
+
+        $users = User::paginate(5);
+        return view('admin.users.all' , compact('users'));
     }
 
     /**
@@ -79,7 +82,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        //SELECT * FROM users Where id=? 
+       $user = User::findOrFail($id);
+       return view('admin.users.edit' , compact('user'));
     }
 
     /**
@@ -91,7 +96,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //Make Validate 
+        $validator = Validator::make($request->all() , [
+        'name' => ['required' , 'string' , 'min:4', 'max:255'],
+        'email' => ['required' , 'email' , 'unique:users']
+        ]);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput($request->all());
+        }     
+        $user = User::findOrFail($id);
+        $user->update([
+             "name" => $request->name , 
+             "email" => $request->email
+        ]);
+        return redirect()->back()->with(['success' => 'User has been Updated']);
     }
 
     /**
@@ -103,5 +121,8 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+         $user = User::findOrFail($id);
+         $user->delete();
+         return redirect()->back()->with(['success' => 'User has been Deleted']);
     }
 }
