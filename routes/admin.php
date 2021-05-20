@@ -12,9 +12,15 @@ use App\Http\Controllers\Admin\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+ // ->middleware('auth') => middleware for route-only 
+Route::get("/admin" ,[DashboardController::class , 'index'])
+              ->middleware('auth' , 'check.admin')
+              ->name('admin');
 
-Route::get("/admin" ,[DashboardController::class , 'index']);
+Route::middleware('auth' , 'check.admin')->prefix("admin")->group(function(){
 
-Route::prefix("admin")->group(function(){
    Route::resource("/user" , UserController::class);
+   Route::get('/post' , function(){
+      return "Hello From post page" ;
+   });
 });
